@@ -1,0 +1,386 @@
+:root {
+  color-scheme: light;
+  --bg: #f6f3eb;
+  --panel: #ffffff;
+  --panel-soft: #eef4ef;
+  --ink: #1d2621;
+  --muted: #69746f;
+  --line: #dce2dc;
+  --accent: #267352;
+  --accent-dark: #155b3d;
+  --accent-soft: #dff1e6;
+  --warn: #b4552d;
+  --bad: #b84242;
+  --shadow: 0 18px 45px rgba(35, 50, 42, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+button,
+select,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app-shell {
+  width: min(980px, 100%);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: max(18px, env(safe-area-inset-top)) 18px max(22px, env(safe-area-inset-bottom));
+}
+
+.topbar,
+.practice-head,
+.settings-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.eyebrow,
+.muted,
+.practice-head p,
+.setting-item p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.eyebrow {
+  font-size: 14px;
+}
+
+h1,
+h2 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+h1 {
+  font-size: clamp(28px, 4vw, 42px);
+}
+
+.hero-panel,
+.question-panel,
+.setting-item {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.hero-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px;
+}
+
+.hero-panel h2 {
+  margin-top: 6px;
+  font-size: clamp(26px, 4vw, 38px);
+}
+
+.hero-panel p:last-child {
+  margin: 8px 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.stat-card,
+.mode-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.stat-card {
+  padding: 16px;
+}
+
+.stat-card span,
+.mode-card small {
+  display: block;
+  color: var(--muted);
+}
+
+.stat-card strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 28px;
+}
+
+.mode-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.mode-card {
+  min-height: 92px;
+  padding: 18px;
+  text-align: left;
+}
+
+.mode-card span {
+  display: block;
+  font-size: 20px;
+  font-weight: 750;
+}
+
+.mode-card small {
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.mode-card.wide {
+  grid-column: 1 / -1;
+  background: var(--panel-soft);
+}
+
+.filter-row {
+  margin-top: 16px;
+}
+
+.filter-row label {
+  display: grid;
+  gap: 8px;
+  color: var(--muted);
+}
+
+select {
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--ink);
+}
+
+.icon-button,
+.ghost-button,
+.primary-button,
+.secondary-button,
+.danger-button,
+.file-button {
+  min-height: 48px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0 18px;
+  font-weight: 700;
+}
+
+.icon-button {
+  width: 48px;
+  padding: 0;
+  background: var(--panel);
+  border-color: var(--line);
+}
+
+.primary-button {
+  background: var(--accent);
+  color: #fff;
+}
+
+.primary-button:active,
+.primary-button:hover {
+  background: var(--accent-dark);
+}
+
+.secondary-button,
+.ghost-button {
+  background: var(--panel);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.danger-button {
+  background: var(--bad);
+  color: #fff;
+}
+
+.practice-head {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  margin: 0 -18px 14px;
+  padding: 12px 18px;
+  background: rgba(246, 243, 235, 0.94);
+  backdrop-filter: blur(12px);
+}
+
+.practice-head > div {
+  text-align: center;
+}
+
+.question-panel {
+  padding: 22px;
+}
+
+.question-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.question-meta span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+#questionStem {
+  font-size: clamp(22px, 3vw, 32px);
+  line-height: 1.45;
+}
+
+.options-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.option-item {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 12px;
+  align-items: start;
+  min-height: 58px;
+  padding: 15px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.option-item input {
+  width: 24px;
+  height: 24px;
+  margin: 3px 0 0;
+  accent-color: var(--accent);
+}
+
+.option-text {
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.result-panel {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 8px;
+  background: var(--accent-soft);
+  line-height: 1.7;
+}
+
+.result-panel.wrong {
+  background: #f8e6df;
+}
+
+.action-bar {
+  position: sticky;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr;
+  gap: 10px;
+  margin: 16px -18px -22px;
+  padding: 12px 18px max(12px, env(safe-area-inset-bottom));
+  background: rgba(246, 243, 235, 0.94);
+  backdrop-filter: blur(12px);
+}
+
+.settings-list {
+  display: grid;
+  gap: 12px;
+}
+
+.setting-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px;
+}
+
+.setting-item p {
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+.file-button {
+  display: inline-flex;
+  align-items: center;
+}
+
+.file-button input {
+  display: none;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 680px) {
+  .app-shell {
+    padding-inline: 14px;
+  }
+
+  .hero-panel,
+  .setting-item {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mode-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mode-card.wide {
+    grid-column: auto;
+  }
+
+  .practice-head {
+    gap: 8px;
+  }
+
+  .practice-head .ghost-button {
+    padding-inline: 12px;
+  }
+
+  .action-bar {
+    grid-template-columns: 1fr;
+  }
+}
